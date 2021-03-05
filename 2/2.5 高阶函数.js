@@ -47,11 +47,9 @@ let fibonacci = function (n) {
   return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-fibonacci = memoize0(fibonacci)
+fibonacci = memoize(fibonacci)
 
-for (let i = 0; i <10 ; i--) {
+for (let i = 0; i <10 ; i++) {
   fibonacci(i)
 }
 console.log('count:', count);
-
-
