@@ -22,7 +22,7 @@ let deepClone = obj => {
     }
   }
   return newObj
-}
+};
 let richGirl = deepClone(richBoy)
 richBoy.name = '不开心';
 richBoy.car[0] = '奥迪';
