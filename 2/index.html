@@ -13,7 +13,27 @@
     }
 </style>
 <body>
-    <div id="box"></div>
+<div id="box"></div>
 </body>
-<script src="2.14深浅拷贝.js"></script>
+<script src="2.9underscore.js"></script>
+<script>
+
+  // console.log(_ === window._); //true,_函数，挂在window下，_ === window._
+  // console.log(_.map === window._.map); // true
+
+  // console.log(_());// 返回_对象实例
+  // console.log(_.map()); // _.map()
+  // console.log(_().map()); // _.prototype.map()
+
+  let res1 = _.unique([1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 'a', 'A'], (item) => {
+    return typeof item === 'string' ? item.toLowerCase() : item;
+  });
+  console.log(res1);
+
+  // let res1 = _([1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 'a', 'A']).unique((item => {
+  //   return typeof item === 'string' ? item.toLowerCase() : item;
+  // }));
+  // console.log(res1);
+
+</script>
 </html>
