@@ -31,6 +31,24 @@
     }
   };
 
+  _.chain = (obj) => {
+    const instance = _(obj); // 特殊的实例对象
+    instance._chain = true; // 特殊的属性 凭证
+    return instance;
+  };
+
+  const result = (instance, obj) => {
+    if (instance._chain) {
+      instance.wrap = obj;
+      return instance;
+    }
+    return obj;
+  };
+
+  _.prototype.value = () => {
+    return this.wrap;
+  };
+
   _.functions = function (obj) {
     var result = [];
     for (var key in obj) {
@@ -51,7 +69,10 @@
         let args = [this.wrap];
         // arguments可以0至多个参数
         [].push.apply(args, arguments);
-        return func.apply(this, args)
+
+        // this判断是否需要链式调用 this._chain === true
+        // func.apply(this, args) 数据经过某个供需处理之后的结果
+        return result(this, func.apply(this, args));
       };
     });
   };
