@@ -15,7 +15,6 @@
   };
 
   _.unique = function (array, callback) {
-    debugger
     let result = [], i = 0;
     for (; i < array.length; i++) {
       let target = callback ? callback(array[i]) : array[i];
