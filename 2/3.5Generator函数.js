@@ -149,17 +149,17 @@ function runG6(fn) {
   // result.value就是testThunk('a')执行后的function，类似testThunk('hi')(cb)中到testThunk('hi')这一步
   // next 就是本身function next,当于上面的cb
   // 只有result.value(next)后，testCallBack和cb才会调用
-  function next1() {
+  function next() {
     const result = g6.next();
     console.log('log', result);
     if (result.done) return;
-    result.value(next1);
+    result.value(next);
   }
-  next1();
+  next();
 }
 
 /**
- * 有了这个执⾏器,执⾏Generator函数⽅便多了,不管内部有多少个异步操作,直接把Generator函数传⼊ run 函数即可
+ * 有了这个执⾏器,执⾏Generator函数⽅便多了,不管内部有多少个异步操作,直接把Generator函数传⼊runG6函数即可
  * 当然,前提是每⼀个异步操作都要是Thunk函数,也就是说,跟在 yield 命令后⾯的必须是Thunk函数。因为需要传入回调函数
  * @returns {Generator<function(*=): void, function(*=): void, *>}
  */
