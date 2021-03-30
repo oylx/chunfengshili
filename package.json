@@ -1,0 +1,12 @@
+{
+  "type": "commonjs",
+  "scripts": {
+    "build": "babel 2/3.7rxjs.js -d dist",
+    "start": "npm run build && node dist/index.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.13.13",
+    "@babel/preset-env": "^7.13.12",
+    "rxjs": "^6.6.7"
+  }
+}
