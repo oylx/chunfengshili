@@ -36,4 +36,24 @@
   // console.log(res1);
 
 </script>
+<script id="worker" type="javascript/worker">
+    function fibonacci(n) {
+        if (n === 1 || n === 2) {
+          return 1;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+      postMessage(fibonacci(40))
+</script>
+<script>
+  // 引入3.9webWorkers.js存在弊端，见31.png
+  // 嵌入式worker
+  let workerScript = document.querySelector('#worker').textContent;
+  let blob = new Blob([workerScript], { type: 'text/javascript' });
+  let worker = new Worker(window.URL.createObjectURL(blob));
+  worker.onmessage = function (e) {
+    console.log('worker通知message', e);
+    worker.postMessage('message收到了');
+  };
+</script>
 </html>
