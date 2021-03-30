@@ -48,6 +48,7 @@
 <script>
   // 引入3.9webWorkers.js存在弊端，见31.png
   // 嵌入式worker
+
   let workerScript = document.querySelector('#worker').textContent;
   let blob = new Blob([workerScript], { type: 'text/javascript' });
   let worker = new Worker(window.URL.createObjectURL(blob));
