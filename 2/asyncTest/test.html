@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise 顺序加载图片</title>
+</head>
+<body>
+<div id="pics">
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F610c98513a300de2f03f6ef1306a46a50bdd172b9b10f-S0YgbZ_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1619852577&t=df4bd26aba25ce9f5c8344900f9f4443"
+         data-src="https://1gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201503%2F23%2F20150323222306_rsFYX.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1619852797&t=beb9ff72c4455f8937c0e80fe9654cc4"/>
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F610c98513a300de2f03f6ef1306a46a50bdd172b9b10f-S0YgbZ_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1619852577&t=df4bd26aba25ce9f5c8344900f9f4443"
+         data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdingyue.nosdn.127.net%2F65jLwKx%3DvE3GUpn2IRjbhZJTxe%3DPkZPX1Rs6xunqXh8mT1538896671360.jpeg&refer=http%3A%2F%2Fdingyue.nosdn.127.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1619852818&t=794bb661b8f94491e60dac369ae6943c"/>
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F610c98513a300de2f03f6ef1306a46a50bdd172b9b10f-S0YgbZ_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1619852577&t=df4bd26aba25ce9f5c8344900f9f4443"
+         data-src="https://ss3.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/8435e5dde71190efc8f16ea9cd1b9d16fdfa60ba.jpg"/>
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F610c98513a300de2f03f6ef1306a46a50bdd172b9b10f-S0YgbZ_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1619852577&t=df4bd26aba25ce9f5c8344900f9f4443"
+         data-src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.uimaker.com%2Fuploads%2Fallimg%2F190509%2F15123SZ9_0.jpg&refer=http%3A%2F%2Fwww.uimaker.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1619852847&t=5043e36e30d008f6cdb0568aae31b676"/>
+</div>
+</body>
+<script>
+  // function loadImageByPromise(imgElement) {
+  //   return new Promise((resolve, reject) => {
+  //     imgElement.src = imgElement.dataset.src;
+  //     imgElement.onload = e => resolve(e);
+  //     imgElement.onerror = e => reject(e);
+  //   });
+  // }
+  //
+  // let imgElements = document.getElementById('pics').querySelectorAll('img');
+  // loadImageByPromise(imgElements[0]).then(() => {
+  //   return loadImageByPromise(imgElements[1]);
+  // }).then(() => {
+  //   return loadImageByPromise(imgElements[2]);
+  // }).then(() => {
+  //   return loadImageByPromise(imgElements[3]);
+  // }).catch(e => {
+  //   let p = e.currentTarget.parentElement;
+  //   p.replaceChild(document.createTextNode('图片加载失败'), e.currentTarget);
+  // });
+
+</script>
+<script>
+  function loadImageByPromise(imgElement) {
+    return new Promise((resolve, reject) => {
+      imgElement.src = imgElement.dataset.src;
+      imgElement.onload = e => resolve(e);
+      imgElement.onerror = e => reject(e);
+    });
+  }
+  function loadImages(imgElements,errorCallback) {
+    let p = Promise.resolve()
+    imgElements.forEach(v => {
+      // 修复上面笨拙方法:某张图加载出错阻塞后续加载
+      p = p.then(() => loadImageByPromise(v)).catch(e => errorCallback && errorCallback.call(this, e)) // 不是太理解
+    })
+  }
+  let imgElements = document.getElementById('pics').querySelectorAll('img')
+  loadImages(imgElements, e => {
+    const p = e.currentTarget.parentNode
+    p.replaceChild(document.createTextNode('图片加载失败'), e.currentTarget)
+  })
+</script>
+<style>
+    img {
+        width:300px;
+        height: auto;
+        display: inline-block;
+    }
+</style>
+</html>
