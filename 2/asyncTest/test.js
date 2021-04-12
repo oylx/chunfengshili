@@ -128,17 +128,99 @@ function task6() {
 
 // 习题7 Promise在resolve语句后抛出错误能否被捕获
 // 不能 resolve将状态置为resolved，不能再变为rejected
-function task7 () {
+function task7() {
   new Promise(function (resolve, reject) {
-    resolve('a')
-    throw  new Error('b')
-  })
-    .then(console.log)
-    .catch(console.log)
+    resolve('a');
+    throw  new Error('b');
+  }).then(console.log).catch(console.log);
 }
-task7()
+
+// task7();
 
 // 习题8 请根据以下代码，用 promise 实现顺序加载图片，如果有图片加载失败，在图片位置现实加载失败的提示
+// 见test.html
 
+// 习题9
+function * gen9() {
+  const a = yield 'a';
+  const b = yield a + 2;
+  console.log('a', a);
+  return b;
+}
+
+function runGen() {
+  const g = gen9();
+  console.log(g.next());
+  console.log(g.next(4));
+  console.log(g.next());
+}
+
+// runGen();
+
+// 习题10 请问以下代码会打印什么
+function * gen1() {
+  yield 'a';
+  yield 'b';
+}
+
+function * gen2() {
+  yield * gen1();
+  yield 'c';
+  yield 'd';
+}
+
+function * gen3() {
+  gen1();
+  yield 'e';
+  yield 'f';
+}
+
+function runGenAll() {
+  const g2 = gen2();
+  const g3 = gen3();
+
+  for (let v of g2) {
+    console.log(v);
+  }
+  for (let v of g3) {
+    console.log(v);
+  }
+
+}
+
+// runGenAll();
+
+// 习题11 请问以下代码会输出什么 生成器结合promise
+function geneP(d1, d2) {
+  return new Promise((resolve, reject) => {
+    if (+new Date() > 0) {
+      resolve(d1);
+    } else {
+      reject(d2);
+    }
+  });
+}
+
+function * gen10() {
+  yield geneP('yes', 'no');
+  yield geneP('y', 'n');
+}
+
+function runGen10(fn) {
+  const g = fn();
+
+  function next() {
+    const result = g.next();
+    console.log(result.value);
+    if (result.done) {
+      return;
+    }
+    result.value.then(next);
+  }
+
+  next();
+}
+
+runGen10(gen10)
 
 
