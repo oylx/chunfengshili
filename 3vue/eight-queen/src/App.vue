@@ -2,20 +2,29 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <eight-queen></eight-queen>
+    <div>
+      {{ msg }}
+      <event-parent-child :msg="msg" @update:msg="msg=$event"></event-parent-child>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import EightQueen from '@/components/EightQueen';
+import EventParentChild from '@/components/EventParentChild';
 
 export default {
   name: 'App',
   components: {
+    EventParentChild,
     EightQueen,
-    HelloWorld
-  }
-}
+  },
+  data() {
+    return {
+      msg: '',
+    };
+  },
+};
 </script>
 
 <style>
