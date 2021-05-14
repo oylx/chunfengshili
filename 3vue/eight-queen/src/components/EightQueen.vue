@@ -29,7 +29,23 @@ export default {
   },
   methods: {
     select(rindex, cindex) {
-      this.grids[rindex][cindex].ok = true;
+      if(this.validate(rindex, cindex)){
+        this.grids[rindex][cindex].ok = true;
+      }else {
+        alert('不行哦')
+      }
+    },
+    validate(rindex, cindex) {
+      for (let i = 0; i < this.grids[rindex].length; i++) {
+        for (let j = 0; j < this.grids[cindex].length; j++) {
+          if (this.grids[i][j].ok) {
+            if (i === rindex || j === cindex || (cindex - j) / (rindex - i) === 1 || (cindex - j) / (rindex - i) === -1) {
+              return false;
+            }
+          }
+        }
+      }
+      return true
     },
   },
 };
