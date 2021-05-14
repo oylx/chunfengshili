@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+    <s-text></s-text>
+    <s-select></s-select>
     <s-directive-page></s-directive-page>
     <eight-queen></eight-queen>
     <div>
@@ -14,10 +16,14 @@
 import EightQueen from '@/components/EightQueen';
 import EventParentChild from '@/components/EventParentChild';
 import SDirectivePage from '@/components/SDirectivePage';
+import SText from '@/components/SText';
+import SSelect from '@/components/SSelect';
 
 export default {
   name: 'App',
   components: {
+    SSelect,
+    SText,
     SDirectivePage,
     EventParentChild,
     EightQueen,
