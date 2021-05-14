@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+    <s-directive-page></s-directive-page>
     <eight-queen></eight-queen>
     <div>
       {{ msg }}
@@ -12,10 +13,12 @@
 <script>
 import EightQueen from '@/components/EightQueen';
 import EventParentChild from '@/components/EventParentChild';
+import SDirectivePage from '@/components/SDirectivePage';
 
 export default {
   name: 'App',
   components: {
+    SDirectivePage,
     EventParentChild,
     EightQueen,
   },
