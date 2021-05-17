@@ -10,10 +10,12 @@
     <input type="number" v-model.number="num">
     num:{{ typeof num }}
     <br>
+    <!--    自制v-model 正常：value input-->
     <input type="text" :value="text" @input="text= $event.target.value">
     <br>
+    <!--    在change而非input时更新-->
     <input type="text" v-model.lazy="text1">
-    lazy:{{text1}}
+    lazy:{{ text1 }}
     <br>
   </div>
 </template>
