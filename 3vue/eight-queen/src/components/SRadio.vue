@@ -27,15 +27,15 @@ export default {
     return {
       selected: 'A',
       checked: [],
-      list: [{ A: '霍乱' }, { B: '鼠疫' }, { C: '甲流' },{
+      list: [{
         name: '霍乱',
-        value: "A"
-      },{
-        name:'鼠疫',
-        value:'B'
-      },{
-        name:'甲流',
-        value:'C'
+        value: 'A',
+      }, {
+        name: '鼠疫',
+        value: 'B',
+      }, {
+        name: '甲流',
+        value: 'C',
       }],
     };
   },

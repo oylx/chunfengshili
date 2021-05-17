@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+    <s-custom></s-custom>
     <s-text></s-text>
     <s-select></s-select>
     <s-directive-page></s-directive-page>
@@ -18,10 +19,12 @@ import EventParentChild from '@/components/EventParentChild';
 import SDirectivePage from '@/components/SDirectivePage';
 import SText from '@/components/SText';
 import SSelect from '@/components/SSelect';
+import SCustom from '@/components/SCustom';
 
 export default {
   name: 'App',
   components: {
+    SCustom,
     SSelect,
     SText,
     SDirectivePage,
