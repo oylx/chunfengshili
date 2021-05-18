@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+    <s-slot-demo></s-slot-demo>
     <s-custom></s-custom>
     <s-text></s-text>
     <s-select></s-select>
@@ -20,10 +21,12 @@ import SDirectivePage from '@/components/SDirectivePage';
 import SText from '@/components/SText';
 import SSelect from '@/components/SSelect';
 import SCustom from '@/components/SCustom';
+import SSlotDemo from '@/components/SSlotDemo';
 
 export default {
   name: 'App',
   components: {
+    SSlotDemo,
     SCustom,
     SSelect,
     SText,
