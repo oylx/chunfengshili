@@ -1,5 +1,6 @@
 <template>
   <div>
+    <s-load></s-load>
     <current-user>
       <!--      在父级作用域中，我们可以使用带值的 v-slot 来定义我们提供的插槽 prop 的名字-->
       <!--      slotProps可以用x/y/z等替代-->
@@ -20,7 +21,7 @@
       </template>
 
       <template v-slot:other="otherSlotProps">
-        ...
+        {{ otherSlotProps.user.firstName }}
       </template>
     </current-user>
     <base-layout>
@@ -52,10 +53,12 @@
 import NavigationLink from '@/components/slot/NavigationLink';
 import BaseLayout from '@/components/slot/BaseLayout';
 import CurrentUser from '@/components/slot/CurrentUser';
+import SLoad from '@/components/SLoad';
 
 export default {
   name: 'SSlotDemo',
   components: {
+    SLoad,
     CurrentUser,
     BaseLayout,
     NavigationLink,
