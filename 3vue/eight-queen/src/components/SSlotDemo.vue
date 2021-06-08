@@ -16,8 +16,9 @@
 <!--      </template>-->
 <!--    </current-user>-->
     <current-user>
-      <template v-slot:default="slotProps">
-        {{ slotProps.user.firstName }}
+      <!--      可以简写为<template #default="slotProps">-->
+      <template #default="{ user: { lastName } }">
+        {{ lastName }}
       </template>
 
       <template v-slot:other="otherSlotProps">

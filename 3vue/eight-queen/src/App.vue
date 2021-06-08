@@ -33,7 +33,7 @@ import SSelect from '@/components/SSelect';
 import SCustom from '@/components/SCustom';
 import SSlotDemo from '@/components/SSlotDemo';
 import SCustomWrapInput from '@/components/SCustomWrapInput';
-import SMixin from '@/components/SMixin';
+import SMixin from '@/components/composition/mixin/SMixin';
 
 export default {
   name: 'App',
@@ -64,8 +64,8 @@ export default {
           console.log('结束了')
         },
         type: 'success',
-        // position: 'topRight',
-        autoClose: true
+        autoClose: false,
+        position: 'topRight'
       })
     }
   }
