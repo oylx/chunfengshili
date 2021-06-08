@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <div>
+      <button type="button" class="btn btn-default" @click="toast">click</button>
+    </div>
+    <div>
       <s-mixin></s-mixin>
     </div>
     <div>
@@ -54,6 +57,16 @@ export default {
   methods: {
     onBlur(v) {
       console.log(v);
+    },
+    toast () {
+      this.$toast('操作成功', {
+        callback () {
+          console.log('结束了')
+        },
+        type: 'success',
+        // position: 'topRight',
+        autoClose: true
+      })
     }
   }
 };

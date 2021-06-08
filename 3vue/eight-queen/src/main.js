@@ -2,9 +2,11 @@ import Vue from 'vue';
 import App from './App.vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import { ToastPlugin } from './common/toast/index'
 
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
+Vue.use(ToastPlugin)
 Vue.directive('resize', {
   inserted(el, binding) {
     console.log(binding);
