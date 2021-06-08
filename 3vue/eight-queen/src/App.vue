@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <div>
+      <p>姓名:</p>
+      <s-custom-wrap-input v-model="value" @blur="onBlur"></s-custom-wrap-input>
+      {{ value }}
+    </div>
     <s-slot-demo></s-slot-demo>
     <s-custom></s-custom>
     <s-text></s-text>
@@ -22,10 +26,12 @@ import SText from '@/components/SText';
 import SSelect from '@/components/SSelect';
 import SCustom from '@/components/SCustom';
 import SSlotDemo from '@/components/SSlotDemo';
+import SCustomWrapInput from '@/components/SCustomWrapInput';
 
 export default {
   name: 'App',
   components: {
+    SCustomWrapInput,
     SSlotDemo,
     SCustom,
     SSelect,
@@ -37,8 +43,14 @@ export default {
   data() {
     return {
       msg: '',
+      value: '',
     };
   },
+  methods: {
+    onBlur(v) {
+      console.log(v);
+    }
+  }
 };
 </script>
 
