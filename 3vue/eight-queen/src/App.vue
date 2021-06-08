@@ -2,7 +2,7 @@
   <div id="app">
     <div>
       <p>姓名:</p>
-      <s-custom-wrap-input v-model="value" @blur="onBlur"></s-custom-wrap-input>
+      <s-custom-wrap-input v-model="value"></s-custom-wrap-input>
       {{ value }}
     </div>
     <s-slot-demo></s-slot-demo>

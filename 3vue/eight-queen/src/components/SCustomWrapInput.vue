@@ -1,25 +1,14 @@
 <template>
   <div>
-    <input
-      v-model="value"
-      @input="$emit('input', value)"
-      @blur="$emit('blur')" />
+    <el-input
+      v-bind="$attrs"
+      v-on="$listeners"/>
   </div>
 </template>
 
 <script>
 export default {
   name: 'SCustomWrapInput',
-  model: {
-    prop: 'initValue',
-    event: 'input',
-  },
-  props: ['initValue'],
-  data() {
-    return {
-      value: this.initValue,
-    };
-  },
 };
 </script>
 
