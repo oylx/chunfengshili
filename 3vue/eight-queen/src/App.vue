@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <div>
+      <s-mixin></s-mixin>
+    </div>
+    <div>
       <p>姓名:</p>
       <s-custom-wrap-input v-model="value"></s-custom-wrap-input>
       {{ value }}
@@ -27,10 +30,12 @@ import SSelect from '@/components/SSelect';
 import SCustom from '@/components/SCustom';
 import SSlotDemo from '@/components/SSlotDemo';
 import SCustomWrapInput from '@/components/SCustomWrapInput';
+import SMixin from '@/components/SMixin';
 
 export default {
   name: 'App',
   components: {
+    SMixin,
     SCustomWrapInput,
     SSlotDemo,
     SCustom,
