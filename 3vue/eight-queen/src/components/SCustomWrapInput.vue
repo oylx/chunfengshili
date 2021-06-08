@@ -1,9 +1,9 @@
 <template>
   <div>
-    <el-input
+    <input
       v-model="value"
       @input="$emit('input', value)"
-      @blur="$emit('blur')"></el-input>
+      @blur="$emit('blur')" />
   </div>
 </template>
 
