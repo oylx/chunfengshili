@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import validateMixin from '@/mixin/validateMixin';
+import validateMixin from '@/components/composition/mixin/validateMixin';
 export default {
   name: 'SMixin',
   data: () => ({
