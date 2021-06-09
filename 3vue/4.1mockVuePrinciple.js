@@ -1,20 +1,23 @@
 let x;
 let y;
 let f = n => n * 100 + 100;
-let active;
+let activeCb;
 
 let onXChanged = cb => {
-  active = cb;
-  active();
-  active = null;
+  activeCb = cb;
+  activeCb();
+  activeCb = null;
 };
 
 class Dep {
   deps = new Set();
 
-  depend() {
-    if (active) {
-      this.deps.add(active);
+  /**
+   * 永久存入activeCb
+   */
+  add() {
+    if (activeCb) {
+      this.deps.add(activeCb);
     }
   }
 
@@ -24,13 +27,13 @@ class Dep {
 }
 
 let ref = initValue => {
-  // 2个闭包
+  // 2个闭包 value dep
   let value = initValue;
   let dep = new Dep();
 
   return Object.defineProperty({}, 'value', {
     get() {
-      dep.depend();
+      dep.add();
       return value;
     },
     set(newValue) {
@@ -42,12 +45,17 @@ let ref = initValue => {
 
 init = () => {
   x = ref(1);
-  let activeCallback = () => {
-    y = f(x.value);
+  let activeCallback1 = () => {
+    y = f(x.value); // x get => add cb
     console.log(y);
-  }
-  onXChanged(activeCallback);
+  };
+  let activeCallback2 = () => {
+    y = f(x.value + 10); // x get => add cb
+    console.log(y);
+  };
+  onXChanged(activeCallback1); // 第一次调用active
+  onXChanged(activeCallback2); // 第二次调用active
 };
 init();
-x.value = 2;
-x.value = 3;
+x.value = 2; // s set => notify cbs
+x.value = 3; // s set => notify cbs
