@@ -69,7 +69,7 @@ export default {
           console.log('结束了')
         },
         type: 'success',
-        autoClose: false,
+        autoClose: true,
         position: 'topRight'
       })
     }

@@ -75,7 +75,7 @@ export default {
   methods: {
     close () {
       if (this.autoClose) {
-        setTimeout(() => {
+        this.show && setTimeout(() => {
           this.show = false
           this.callback && this.callback()
         }, this.closeTime * 1000)
