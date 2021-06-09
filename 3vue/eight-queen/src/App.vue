@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <div>
+      <renderless-validate></renderless-validate>
+    </div>
+    <div>
       <button type="button" class="btn btn-default" @click="toast">click</button>
     </div>
     <div>
@@ -34,10 +37,12 @@ import SCustom from '@/components/SCustom';
 import SSlotDemo from '@/components/SSlotDemo';
 import SCustomWrapInput from '@/components/SCustomWrapInput';
 import SMixin from '@/components/composition/mixin/SMixin';
+import RenderlessValidate from '@/components/composition/renderless/RenderlessValidate';
 
 export default {
   name: 'App',
   components: {
+    RenderlessValidate,
     SMixin,
     SCustomWrapInput,
     SSlotDemo,

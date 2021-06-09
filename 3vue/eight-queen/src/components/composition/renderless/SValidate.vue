@@ -17,7 +17,9 @@ export default {
   methods: {
     validate() {
       return this.rules.reduce((prev, cur) => {
-        return prev && cur && cur.test && cur.test(this.value);
+        let check = cur && cur.test && cur.test(this.value);
+        this.errMsg = check ? '' : cur.message;
+        return prev && check;
       }, true);
     },
   },
