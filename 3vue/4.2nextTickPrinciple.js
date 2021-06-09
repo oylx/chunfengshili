@@ -56,8 +56,17 @@ let z = ref(3);
 watch(() => {
   let tpl = `hello ${x.num} ${y.num} ${z.num}`;
   console.log(tpl);
-  document.write(tpl);
+  document.body.append(tpl);
 });
 x.num = 4;
-y.num = 5
-z.num = 6
+y.num = 5;
+z.num = 6;
+// setTimeout(() => {
+//   x.num = 4;
+// }, 0)
+// setTimeout(() => {
+//   y.num = 5;
+// }, 0)
+// setTimeout(() => {
+//   z.num = 6;
+// }, 0)
