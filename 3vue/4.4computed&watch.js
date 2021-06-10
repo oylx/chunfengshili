@@ -73,16 +73,29 @@ class Dep {
 let ref = initValue => {
   let value = initValue;
   let dep = new Dep();
-  return Object.defineProperty({}, 'value', {
-    get() {
+  return new Proxy({
+    value: initValue
+  }, {
+    get(target, prop, receiver) {
       dep.depend();
-      return value;
+      console.log(target,prop);
+      return Reflect.get(target, prop);
     },
-    set(newValue) {
-      value = newValue;
+    set(target, prop, value, receiver) {
+      Reflect.set(target, prop, value);
       dep.notify();
     },
   });
+  // return Object.defineProperty({}, 'value', {
+  //   get() {
+  //     dep.depend();
+  //     return value;
+  //   },
+  //   set(newValue) {
+  //     value = newValue;
+  //     dep.notify();
+  //   },
+  // });
 };
 
 let computed = fn => {
