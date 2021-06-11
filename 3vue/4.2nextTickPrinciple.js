@@ -10,6 +10,7 @@ let queue = [];
 let nextTick = cb => Promise.resolve().then(cb);
 let queueJob = job => {
   if (!queue.includes(job)) {
+    // 相同的job执行1次，按eventLoop执行
     queue.push(job);
     nextTick(flushJobs)
   }
@@ -25,9 +26,7 @@ class Dep {
   deps = new Set();
 
   depend() {
-    if (active) {
-      this.deps.add(active);
-    }
+    if (active) this.deps.add(active); //首次执行
   }
 
   notify() {
