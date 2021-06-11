@@ -15,7 +15,7 @@ class Dep {
   /**
    * 永久存入activeCb
    */
-  add() {
+  depend() {
     if (activeCb) {
       this.deps.add(activeCb);
     }
@@ -33,7 +33,7 @@ let ref = initValue => {
 
   return Object.defineProperty({}, 'value', {
     get() {
-      dep.add();
+      dep.depend();
       return value;
     },
     set(newValue) {
@@ -43,7 +43,7 @@ let ref = initValue => {
   });
 };
 
-init = () => {
+const init = () => {
   x = ref(1);
   let activeCallback1 = () => {
     y = f(x.value); // x get => add cb
