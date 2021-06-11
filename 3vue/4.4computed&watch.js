@@ -1,6 +1,6 @@
 // 1. let x = computed(() => {count.value + 3;});
-// 2.watch(() => count.value, (newValue, oldValue) => {}, { immediate: true });
-// 3.let stop = watchEffect(() => count.value+3)
+// 2. watch(() => count.value, (newValue, oldValue) => {}, { immediate: true });
+// 3. let stop = watchEffect(() => count.value+3)
 
 let active;
 let queue = [];
