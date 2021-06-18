@@ -32,18 +32,19 @@ export default class Router {
     this.routeTable = new RouterTable(routes);
     this.history = new Html5Mode(this);
   }
-  init(app){
-    const {history} =this
+
+  init(app) {
+    const { history } = this;
     history.listen(route => {
       app._route = route;
-    })
+    });
   }
 }
 
 Router.install = function () {
   Vue.mixin({
     beforeCreate() {
-      if (this.$options.router !== undefined) {
+      if (this.$options.router !== undefined) { // main.js里面初始化的router
         this._routerRoot = this;
         this._router = this.$options.router;
         this._router.init(this);

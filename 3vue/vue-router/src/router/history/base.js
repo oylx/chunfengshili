@@ -3,10 +3,13 @@ export default class HistoryBase {
     this.routerTable = routerTable;
   }
 
+  listen(cb) {
+    this.cb = cb;
+  }
+
   transitionTo(target) {
-    const route = this.routerTable.match(target);
-    this.current = route;
-    this.cb(this.current)
+    this.current = this.routerTable.match(target);
+    this.cb(this.current);
   }
 
 }
