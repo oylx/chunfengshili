@@ -18,7 +18,6 @@ class RouterTable {
       // if (route.children) {}
     };
     routes.forEach(route => addRoute(route));
-    history.transitionTo(history.getCurrentLocation())
   }
 
   match(path) {
@@ -35,27 +34,38 @@ class RouterTable {
 
 export default class Router {
   constructor({ routes = [] }) {
-    this.routeTable = new RouterTable(routes);
+    this.routerTable = new RouterTable(routes);
     this.history = new Html5Mode(this);
   }
 
+  /**
+   * @param app vue里的唯一的单页应用
+   */
   init(app) {
     const { history } = this;
     history.listen(route => {
       app._route = route;
     });
+    history.transitionTo(history.getCurrentLocation());
+  }
+
+  push(to) {
+    this.history.push(to);
   }
 }
 
+// 插件，router混入原型
 Router.install = function () {
   Vue.mixin({
     beforeCreate() {
       if (this.$options.router !== undefined) { // main.js里面初始化的router
-        this._routerRoot = this;
+        this._routerRoot = this; // 根等于当前实例
         this._router = this.$options.router;
         this._router.init(this);
-        // 路由响应式
-        Vue.util.defineReactive(this, '_route', this._route.history.current);
+        // 下划线路由响应式，变化则自动渲染
+        Vue.util.defineReactive(this, '_route', this._router.history.current);
+      } else {
+        this._routerRoot = this.$parent && this.$parent._routerRoot;
       }
     },
   });
