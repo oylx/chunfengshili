@@ -1,5 +1,8 @@
 import Html5Mode from './history/html5';
 import Vue from 'vue';
+import RouterView from '@/components/RouterView';
+
+Vue.component('RouterView', RouterView);
 
 class RouterTable {
   constructor(routes) {
@@ -13,6 +16,7 @@ class RouterTable {
       // if (route.children) {}
     };
     routes.forEach(route => addRoute(route));
+    history.transitionTo(history.getCurrentLocation())
   }
 
   match(path) {
