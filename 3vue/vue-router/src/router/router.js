@@ -1,8 +1,10 @@
 import Html5Mode from './history/html5';
 import Vue from 'vue';
 import RouterView from '@/components/RouterView';
+import RouterLink from '@/components/RouterLink';
 
 Vue.component('RouterView', RouterView);
+Vue.component('RouterLink', RouterLink);
 
 class RouterTable {
   constructor(routes) {

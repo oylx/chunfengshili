@@ -17,4 +17,11 @@ export default class Html5History extends BaseHistory {
     return path + window.location.search + window.location.hash;
   }
 
+  push(target) {
+    this.transitionTo(target);
+    window.history.pushState({
+      key: +new Date(),
+    }, '', target);
+  }
+
 }
