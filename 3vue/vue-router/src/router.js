@@ -1,6 +1,6 @@
 import Vue from 'vue';
-// import Router from './router/router';
-import Router from 'vue-router';
+import Router from './router/router';
+// import Router from 'vue-router';
 import Foo from '@/pages/Foo';
 import Bar from '@/pages/Bar';
 

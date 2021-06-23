@@ -32,10 +32,22 @@ class RouterTable {
   }
 }
 
+function registerHook(list,fn) {
+  list.push(fn)
+  return () => {
+    const i = list.indexOf(fn)
+    if(i > -1) list.splice(i,1)
+  }
+}
+
 export default class Router {
   constructor({ routes = [] }) {
     this.routerTable = new RouterTable(routes);
     this.history = new Html5Mode(this);
+
+    this.beforeHooks = [];
+    this.resolveHooks = [];
+    this.afterHooks = [];
   }
 
   /**
@@ -51,6 +63,18 @@ export default class Router {
 
   push(to) {
     this.history.push(to);
+  }
+
+  beforeEach(fn) {
+    return registerHook(this.beforeHooks, fn)
+  }
+
+  beforeResolve(fn) {
+    return registerHook(this.resolveHooks, fn)
+  }
+
+  afterEach(from, to) {
+    return registerHook(this.afterHooks, fn)
   }
 }
 
