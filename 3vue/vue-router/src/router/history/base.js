@@ -30,7 +30,12 @@ export default class BaseHistory {
       return;
     }
 
-    const queue = [...this.router.beforeHooks, route.beforeEnter, route.component.beforeRouteEnter, ...this.router.resolveHooks];
+    const queue = [
+      ...this.router.beforeHooks,
+      route.beforeEnter,
+      route.component.beforeRouteEnter.bind(route.instance),
+      ...this.router.resolveHooks
+    ];
 
     const iterator = (hook, next) => {
       hook(route, this.current, (to) => {

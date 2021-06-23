@@ -11,8 +11,8 @@ export default {
     const hook = {
       init(vnode) {
         route.instance  = vnode.componentInstance
-        console.log('instance', vnode);
-        console.log('instance', vnode);
+        console.log('vnode', vnode);
+        console.log('instance', vnode.componentInstance);
       }
     }
     return <component />;
