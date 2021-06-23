@@ -8,6 +8,13 @@ export default {
       return;
     }
     const { component } = route;
+    const hook = {
+      init(vnode) {
+        route.instance  = vnode.componentInstance
+        console.log('instance', vnode);
+        console.log('instance', vnode);
+      }
+    }
     return <component />;
   },
 };
