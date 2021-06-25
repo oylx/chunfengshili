@@ -2,7 +2,7 @@
   <div>
     <u-list :items="items"></u-list>
   </div>
-  <div class="box-bottom"></div>
+  <div class="x-bottom"></div>
 </template>
 
 <script>
