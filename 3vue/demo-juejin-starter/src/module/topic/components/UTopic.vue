@@ -2,7 +2,7 @@
   <div>
     <u-list :items="items"></u-list>
   </div>
-  <div class="x-bottom"></div>
+  <div class="x-bottom" v-intersect="{handle:fetchNext}"></div>
 </template>
 
 <script>
@@ -24,10 +24,13 @@ export default {
     ...mapActions({
       fetchData: 'FETCH_LIST_DATA',
     }),
+    fetchNext() {
+      const { type } = this;
+      this.fetchData({type})
+    }
   },
   created() {
-    const { type } = this;
-    this.fetchData({ type });
+    this.fetchNext()
   },
 };
 </script>
