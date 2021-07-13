@@ -1,5 +1,19 @@
 <template>
   <div>
+    <template>
+      <div>
+        <my-component>
+          <template v-slot:default="{toParent: a,toParent2: b}">
+            {{a.data2}}
+            {{b.data2}}
+          </template>
+          <template v-slot:header="{headerData:c}">
+            {{c.data2}}
+          </template>
+        </my-component>
+      </div>
+    </template>
+
     <s-load></s-load>
     <current-user>
       <!--      在父级作用域中，我们可以使用带值的 v-slot 来定义我们提供的插槽 prop 的名字-->
@@ -55,10 +69,12 @@ import NavigationLink from '@/components/slot/NavigationLink';
 import BaseLayout from '@/components/slot/BaseLayout';
 import CurrentUser from '@/components/slot/CurrentUser';
 import SLoad from '@/components/SLoad';
+import MyComponent from '@/components/slot/MyComponent';
 
 export default {
   name: 'SSlotDemo',
   components: {
+    MyComponent,
     SLoad,
     CurrentUser,
     BaseLayout,
