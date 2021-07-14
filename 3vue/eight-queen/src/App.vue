@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <component-attr></component-attr>
+    <s-provide></s-provide>
+<!--    <component-attr></component-attr>-->
 <!--    <decorate></decorate>-->
 <!--    <div>-->
 <!--      <renderless-validate></renderless-validate>-->
@@ -41,12 +42,14 @@
 // import SMixin from '@/components/composition/mixin/SMixin';
 // import RenderlessValidate from '@/components/composition/renderless/RenderlessValidate';
 // import Decorate from '@/components/Decorate';
-import ComponentAttr from '@/components/ComponentAttr';
+// import ComponentAttr from '@/components/ComponentAttr';
+import SProvide from '@/components/SProvide';
 
 export default {
   name: 'App',
   components: {
-    ComponentAttr,
+    SProvide,
+    // ComponentAttr,
     // Decorate,
     // RenderlessValidate,
     // SMixin,
