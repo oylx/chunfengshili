@@ -12,22 +12,7 @@
 </template>
 
 <script>
-function updateColor(el, value, interval) {
-  if (Array.isArray(value)) {
-    let i = 0;
-    el.style.color = value[i];
-    el.dataset.time = setInterval(() => {
-      if (i > value.length - 1) {
-        i = 0;
-      }
-      el.style.color = value[i];
-      i++;
-    }, interval);
-  } else {
-    el.style.color = value;
-  }
-}
-
+import color3 from '@/common/directive/color'
 export default {
   name: 'SColor',
   data() {
@@ -80,20 +65,7 @@ export default {
         console.log('v-color指令解绑');
       },
     },
-    color3: {
-      inserted: function (el, binding) {
-        const { arg = 1000, value, } = binding;
-        updateColor(el, value, arg);
-      },
-      componentUpdated: function (el, binding) {
-        clearInterval(el.dataset.time);
-        const { arg = 1000, value, } = binding;
-        updateColor(el, value, arg);
-      },
-      unbind: function (el) {
-        clearInterval(el.dataset.time);
-      },
-    },
+    color3
   },
   methods: {},
 };
