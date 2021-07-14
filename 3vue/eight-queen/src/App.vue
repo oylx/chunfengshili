@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <decorate></decorate>
+    <component-attr></component-attr>
+<!--    <decorate></decorate>-->
 <!--    <div>-->
 <!--      <renderless-validate></renderless-validate>-->
 <!--    </div>-->
@@ -39,12 +40,14 @@
 // import SCustomWrapInput from '@/components/SCustomWrapInput';
 // import SMixin from '@/components/composition/mixin/SMixin';
 // import RenderlessValidate from '@/components/composition/renderless/RenderlessValidate';
-import Decorate from '@/components/Decorate';
+// import Decorate from '@/components/Decorate';
+import ComponentAttr from '@/components/ComponentAttr';
 
 export default {
   name: 'App',
   components: {
-    Decorate,
+    ComponentAttr,
+    // Decorate,
     // RenderlessValidate,
     // SMixin,
     // SCustomWrapInput,
