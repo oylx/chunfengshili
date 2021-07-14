@@ -1,6 +1,19 @@
 import Toast from './MbsToast';
 import { titleMap, iconsMap } from './config';
 
+let buildProps = function(args) {
+  let props = {};
+  props.message = args[0];
+  if (args[1]) {
+    const { type = 'info', position = 'topCenter', closeTime = 3, autoClose = true, width = 300, height = 80, callback, } = args[1];
+    props = { ...props, type, position, closeTime, autoClose, width, height };
+    props.callback = callback ? callback : null;
+  }
+  props.title = titleMap[props.type];
+  props.icon = iconsMap[props.type];
+  return props;
+}
+
 export const ToastPlugin = {
   install(Vue) {
     const ToastConstructor = Vue.extend(Toast);
@@ -13,18 +26,7 @@ export const ToastPlugin = {
       document.body.appendChild(instance.$mount().$el);
     };
 
-    function buildProps(args) {
-      let props = {};
-      props.message = args[0];
-      if (args[1]) {
-        const { type = 'info', position = 'topCenter', closeTime = 3, autoClose = true, width = 300, height = 80, callback, } = args[1];
-        props = { ...props, type, position, closeTime, autoClose, width, height };
-        props.callback = callback ? callback : null;
-      }
-      props.title = titleMap[props.type];
-      props.icon = iconsMap[props.type];
-      return props;
-    }
+
 
   },
 };
