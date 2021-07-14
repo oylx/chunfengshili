@@ -129,6 +129,20 @@
       <!--      </el-input>-->
     </div>
 
+    <div>
+      <!--  使用sync的时候，子组件传递的事件名必须为update:value，其中value必须与子组件中props中声明的名称完全一致(如上例中的myMessage，不能使用my-message)
+            注意带有 .sync 修饰符的 v-bind 不能和表达式一起使用 (例如 v-bind:title.sync=”doc.title + ‘!’” 是无效的)。取而代之的是，你只能提供你想要绑定的属性名，类似 v-model。
+            将 v-bind.sync 用在一个字面量的对象上，例如 v-bind.sync=”{ title: doc.title }”，是无法正常工作的，因为在解析一个像这样的复杂表达式的时候，有很多边缘情况需要考虑。    -->
+      <!--      父组件-->
+      <!--      <comp :myMessage.sync="bar"></comp>-->
+      <!--      子组件-->
+      <!--      this.$emit('update:myMessage',params);-->
+    </div>
+
+    <div>
+
+    </div>
+
   </div>
 </template>
 
