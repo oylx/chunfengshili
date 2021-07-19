@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <s-color></s-color>
+    <s-sync></s-sync>
+<!--    <s-color></s-color>-->
 
 <!--    <s-provide></s-provide>-->
 <!--    <component-attr></component-attr>-->
@@ -46,12 +47,14 @@
 // import Decorate from '@/components/Decorate';
 // import ComponentAttr from '@/components/ComponentAttr';
 // import SProvide from '@/components/SProvide';
-import SColor from '@/components/SColor';
+// import SColor from '@/components/SColor';
+import SSync from '@/components/SSync';
 
 export default {
   name: 'App',
   components: {
-    SColor,
+    SSync,
+    // SColor,
     // SProvide,
     // ComponentAttr,
     // Decorate,
