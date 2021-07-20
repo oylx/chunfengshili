@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <s-lazy></s-lazy>
+    <s-scroll></s-scroll>
+<!--    <s-lazy></s-lazy>-->
 <!--    <s-sync></s-sync>-->
 <!--    <s-color></s-color>-->
 
@@ -50,12 +51,14 @@
 // import SProvide from '@/components/SProvide';
 // import SColor from '@/components/SColor';
 // import SSync from '@/components/SSync';
-import SLazy from '@/components/SLazy';
+// import SLazy from '@/components/SLazy';
+import SScroll from '@/components/SScroll';
 
 export default {
   name: 'App',
   components: {
-    SLazy,
+    SScroll,
+    // SLazy,
     // SSync,
     // SColor,
     // SProvide,
@@ -97,12 +100,16 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
