@@ -8,11 +8,13 @@
     <h1 v-color3.foo.bar="color3">自定义指令</h1>
     <button @click="interval+=100">慢点闪</button>
     <button @click="interval-=100">快点闪</button>
+    <button v-debounce="debounceOption">debounce</button>
   </div>
 </template>
 
 <script>
 import color3 from '@/common/directive/color'
+import debounce from '@/common/directive/debounce'
 export default {
   name: 'SColor',
   data() {
@@ -24,6 +26,10 @@ export default {
       textContext: '1234',
       foo: true,
       bar: true,
+      debounceOption: {
+        time: 800,
+        target: this.handleClick
+      }
     };
   },
   // 局部注册指令 directives: { ClickOutside },
@@ -65,9 +71,14 @@ export default {
         console.log('v-color指令解绑');
       },
     },
-    color3
+    color3,
+    debounce
   },
-  methods: {},
+  methods: {
+    handleClick() {
+      console.log('hi');
+    }
+  },
 };
 </script>
 

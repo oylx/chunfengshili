@@ -26,6 +26,31 @@ Vue.directive('color1', {
   },
 });
 
+// Vue.directive('debounce', {
+//   inserted: function (el, binding) {
+//     el.addEventListener('click', () => {
+//
+//       let { value: delayTime } = binding
+//       delayTime = isNaN(delayTime) ? 800 : parseInt(delayTime)
+//
+//       el.setAttribute('disabled', 'disabled')
+//       el.disabled = true
+//       el.classList.add('is-disabled')
+//       console.log(el, binding);
+//       let t = setTimeout(() => {
+//         clearTimeout(t)
+//         t = null
+//         el.disabled = false
+//         el.removeAttribute('disabled')
+//         el.classList.remove('is-disabled')
+//       }, delayTime) // 时间可以根据实际情况定
+//     })
+//   },
+//   unbind:function (el, binding) {
+//     console.log(el, binding);
+//   }
+// });
+
 Vue.directive('resize', {
   inserted(el, binding) {
     console.log(binding);
