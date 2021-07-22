@@ -8,7 +8,7 @@
 <!--    <h1 v-color3.foo.bar="color3">自定义指令</h1>-->
 <!--    <button @click="interval+=100">慢点闪</button>-->
 <!--    <button @click="interval-=100">快点闪</button>-->
-<!--    <button v-debounce="debounceOption">debounce</button>-->
+    <button v-debounce="debounceOption">debounce</button>
     <button v-longpress="longPressOption">长按</button>
   </div>
 </template>
@@ -83,13 +83,13 @@ export default {
   },
   methods: {
     handleClick() {
-      this.log('hi');
+      this.log(this.color1);
     },
     handlePress() {
-      this.log('handlePress')
+      this.log(this.color2)
     },
-    log() {
-      console.log(this.color1)
+    log(val) {
+      console.log(val)
     }
   },
 };
