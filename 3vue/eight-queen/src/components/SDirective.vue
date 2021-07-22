@@ -1,22 +1,24 @@
 <!--https://juejin.cn/post/6844903910365200392#heading-0-->
 <template>
   <div>
-    <h1 v-color1="color1">{{ textContext }}</h1>
-    <h1 v-color2="color2">{{ textContext }}</h1>
-    <!--  写成[interval]被binding.arg拿到500，否则被binding.arg拿到的是字符串interval-->
-    <h1 v-color3:[interval].foo.bar="color3">自定义指令</h1>
-    <h1 v-color3.foo.bar="color3">自定义指令</h1>
-    <button @click="interval+=100">慢点闪</button>
-    <button @click="interval-=100">快点闪</button>
-    <button v-debounce="debounceOption">debounce</button>
+<!--    <h1 v-color1="color1">{{ textContext }}</h1>-->
+<!--    <h1 v-color2="color2">{{ textContext }}</h1>-->
+<!--    &lt;!&ndash;  写成[interval]被binding.arg拿到500，否则被binding.arg拿到的是字符串interval&ndash;&gt;-->
+<!--    <h1 v-color3:[interval].foo.bar="color3">自定义指令</h1>-->
+<!--    <h1 v-color3.foo.bar="color3">自定义指令</h1>-->
+<!--    <button @click="interval+=100">慢点闪</button>-->
+<!--    <button @click="interval-=100">快点闪</button>-->
+<!--    <button v-debounce="debounceOption">debounce</button>-->
+    <button v-longpress="longPressOption">长按</button>
   </div>
 </template>
 
 <script>
 import color3 from '@/common/directive/color'
 import debounce from '@/common/directive/debounce'
+import longpress from '@/common/directive/longpress'
 export default {
-  name: 'SColor',
+  name: 'SDirective',
   data() {
     return {
       color1: 'red',
@@ -29,6 +31,10 @@ export default {
       debounceOption: {
         time: 800,
         target: this.handleClick
+      },
+      longPressOption: {
+        fn: this.handlePress,
+        time: 2000
       }
     };
   },
@@ -72,11 +78,18 @@ export default {
       },
     },
     color3,
-    debounce
+    debounce,
+    longpress
   },
   methods: {
     handleClick() {
-      console.log('hi');
+      this.log('hi');
+    },
+    handlePress() {
+      this.log('handlePress')
+    },
+    log() {
+      console.log(this.color1)
     }
   },
 };

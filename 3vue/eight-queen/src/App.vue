@@ -3,7 +3,7 @@
 <!--    <s-scroll></s-scroll>-->
 <!--    <s-lazy></s-lazy>-->
 <!--    <s-sync></s-sync>-->
-    <s-color></s-color>
+    <s-directive></s-directive>
 
 <!--    <s-provide></s-provide>-->
 <!--    <component-attr></component-attr>-->
@@ -49,7 +49,7 @@
 // import Decorate from '@/components/Decorate';
 // import ComponentAttr from '@/components/ComponentAttr';
 // import SProvide from '@/components/SProvide';
-import SColor from '@/components/SColor';
+import SDirective from '@/components/SDirective';
 // import SSync from '@/components/SSync';
 // import SLazy from '@/components/SLazy';
 // import SScroll from '@/components/SScroll';
@@ -60,7 +60,7 @@ export default {
     // SScroll,
     // SLazy,
     // SSync,
-    SColor,
+    SDirective,
     // SProvide,
     // ComponentAttr,
     // Decorate,
