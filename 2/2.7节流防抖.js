@@ -32,7 +32,7 @@ oDiv.addEventListener('mousemove', move, false);
  * @returns {function(...[*]=)}
  */
 let throttle = (fn, delay) => {
-  let flag = false; // flag= false 表示执行函数不工作
+  let flag = false; // flag= true 表示执行函数工作
   return function(...args) {
     if (flag) return;
     flag = true;

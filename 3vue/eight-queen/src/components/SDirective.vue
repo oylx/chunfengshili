@@ -9,7 +9,10 @@
 <!--    <button @click="interval+=100">慢点闪</button>-->
 <!--    <button @click="interval-=100">快点闪</button>-->
     <button v-debounce="debounceOption">debounce</button>
+    <br>
     <button v-longpress="longPressOption">长按</button>
+    <br>
+    <button v-throttle="throttleOption">throttle</button>
   </div>
 </template>
 
@@ -17,6 +20,7 @@
 import color3 from '@/common/directive/color'
 import debounce from '@/common/directive/debounce'
 import longpress from '@/common/directive/longpress'
+import throttle from '@/common/directive/throttle'
 export default {
   name: 'SDirective',
   data() {
@@ -30,11 +34,16 @@ export default {
       bar: true,
       debounceOption: {
         time: 800,
-        target: this.handleClick
+        target: this. handleDebounce
       },
       longPressOption: {
         fn: this.handlePress,
         time: 2000
+      },
+      throttleOption: {
+        fn: this.handleThrottle,
+        time: 2000,
+        type: 'click'
       }
     };
   },
@@ -79,14 +88,18 @@ export default {
     },
     color3,
     debounce,
-    longpress
+    longpress,
+    throttle
   },
   methods: {
-    handleClick() {
-      this.log(this.color1);
+     handleDebounce() {
+      this.log(' handleDebounce');
     },
     handlePress() {
-      this.log(this.color2)
+      this.log('handlePress')
+    },
+    handleThrottle() {
+      this.log('handleThrottle')
     },
     log(val) {
       console.log(val)
