@@ -13,6 +13,13 @@
     <button v-longpress="longPressOption">长按</button>
     <br>
     <button v-throttle="throttleOption">throttle</button>
+    <div>
+      <button @click="isImgShow = true">展示弹窗</button>
+      <div style="border: 1px solid #000;" v-click-out="clickOption" v-if="isImgShow" class="pop">
+        <img src="https://xxx.jpg" alt="">
+        <p>文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,6 +28,7 @@ import color3 from '@/common/directive/color'
 import debounce from '@/common/directive/debounce'
 import longpress from '@/common/directive/longpress'
 import throttle from '@/common/directive/throttle'
+import clickOut from '@/common/directive/clickOut'
 export default {
   name: 'SDirective',
   data() {
@@ -32,6 +40,7 @@ export default {
       textContext: '1234',
       foo: true,
       bar: true,
+      isImgShow : false,
       debounceOption: {
         time: 800,
         target: this. handleDebounce
@@ -44,7 +53,10 @@ export default {
         fn: this.handleThrottle,
         time: 2000,
         type: 'click'
-      }
+      },
+      clickOption: {
+        fn: this.clickImgOut,
+      },
     };
   },
   // 局部注册指令 directives: { ClickOutside },
@@ -89,7 +101,8 @@ export default {
     color3,
     debounce,
     longpress,
-    throttle
+    throttle,
+    clickOut,
   },
   methods: {
      handleDebounce() {
@@ -100,6 +113,13 @@ export default {
     },
     handleThrottle() {
       this.log('handleThrottle')
+    },
+    handleClickOut() {
+       this.log('handleClickOut')
+    },
+    clickImgOut(){
+      this.isImgShow = false;
+      console.log('点击弹窗外部')
     },
     log(val) {
       console.log(val)
