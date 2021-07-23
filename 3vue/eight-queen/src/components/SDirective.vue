@@ -106,7 +106,7 @@ export default {
   },
   methods: {
      handleDebounce() {
-      this.log(' handleDebounce');
+      this.log('handleDebounce');
     },
     handlePress() {
       this.log('handlePress')

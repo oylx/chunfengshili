@@ -3,6 +3,7 @@
 <!--    <s-scroll></s-scroll>-->
 <!--    <s-lazy></s-lazy>-->
 <!--    <s-sync></s-sync>-->
+    <on-emit></on-emit>
     <s-directive></s-directive>
 
 <!--    <s-provide></s-provide>-->
@@ -50,6 +51,7 @@
 // import ComponentAttr from '@/components/ComponentAttr';
 // import SProvide from '@/components/SProvide';
 import SDirective from '@/components/SDirective';
+import OnEmit from '@/components/onEmit/onEmit';
 // import SSync from '@/components/SSync';
 // import SLazy from '@/components/SLazy';
 // import SScroll from '@/components/SScroll';
@@ -57,6 +59,7 @@ import SDirective from '@/components/SDirective';
 export default {
   name: 'App',
   components: {
+    OnEmit,
     // SScroll,
     // SLazy,
     // SSync,
