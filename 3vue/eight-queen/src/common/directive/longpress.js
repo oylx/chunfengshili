@@ -24,7 +24,7 @@ const longpress = {
       }
     }
     // 如果n秒内松手，则取消计时器
-    el._cancel = (e) => {
+    el._cancel = () => {
       if (el._timer !== null) {
         clearTimeout(el._timer)
         el._timer = null
