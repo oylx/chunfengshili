@@ -3,9 +3,10 @@
 <!--    <s-scroll></s-scroll>-->
 <!--    <s-lazy></s-lazy>-->
 <!--    <s-sync></s-sync>-->
-    <one></one>
-    <on-emit></on-emit>
-    <s-directive></s-directive>
+    <model-demo></model-demo>
+<!--    <one></one>-->
+<!--    <on-emit></on-emit>-->
+<!--    <s-directive></s-directive>-->
 
 <!--    <s-provide></s-provide>-->
 <!--    <component-attr></component-attr>-->
@@ -51,9 +52,10 @@
 // import Decorate from '@/components/Decorate';
 // import ComponentAttr from '@/components/ComponentAttr';
 // import SProvide from '@/components/SProvide';
-import SDirective from '@/components/SDirective';
-import OnEmit from '@/components/onEmit/onEmit';
-import One from '@/components/sync/One';
+// import SDirective from '@/components/SDirective';
+// import OnEmit from '@/components/onEmit/onEmit';
+// import One from '@/components/sync/One';
+import ModelDemo from '@/components/Checkbox/ModelDemo';
 // import SSync from '@/components/SSync';
 // import SLazy from '@/components/SLazy';
 // import SScroll from '@/components/SScroll';
@@ -61,12 +63,13 @@ import One from '@/components/sync/One';
 export default {
   name: 'App',
   components: {
-    One,
-    OnEmit,
+    ModelDemo,
+    // One,
+    // OnEmit,
     // SScroll,
     // SLazy,
     // SSync,
-    SDirective,
+    // SDirective,
     // SProvide,
     // ComponentAttr,
     // Decorate,
