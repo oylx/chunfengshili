@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+      <drag-table></drag-table>
 <!--    <s-scroll></s-scroll>-->
 <!--    <s-lazy></s-lazy>-->
 <!--    <s-sync></s-sync>-->
@@ -56,6 +57,7 @@
 // import OnEmit from '@/components/onEmit/onEmit';
 // import One from '@/components/sync/One';
 import ModelDemo from '@/components/Checkbox/ModelDemo';
+import DragTable from "./components/DragTable"
 // import SSync from '@/components/SSync';
 // import SLazy from '@/components/SLazy';
 // import SScroll from '@/components/SScroll';
@@ -63,6 +65,7 @@ import ModelDemo from '@/components/Checkbox/ModelDemo';
 export default {
   name: 'App',
   components: {
+    DragTable,
     ModelDemo,
     // One,
     // OnEmit,
