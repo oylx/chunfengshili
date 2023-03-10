@@ -10,7 +10,8 @@
 <!--    <s-directive></s-directive>-->
 
 <!--    <s-provide></s-provide>-->
-    <component-attr />
+    <s-cascader />
+<!--    <component-attr />-->
 <!--    <decorate></decorate>-->
 <!--    <div>-->
 <!--      <renderless-validate></renderless-validate>-->
@@ -26,7 +27,7 @@
 <!--      <s-custom-wrap-input v-model="value"></s-custom-wrap-input>-->
 <!--      {{ value }}-->
 <!--    </div>-->
-   <s-slot-demo></s-slot-demo>
+<!--   <s-slot-demo></s-slot-demo>-->
 <!--    <s-custom></s-custom>-->
 <!--    <s-text></s-text>-->
 <!--    <s-select></s-select>-->
@@ -51,7 +52,8 @@
 // import SMixin from '@/components/composition/mixin/SMixin';
 // import RenderlessValidate from '@/components/composition/renderless/RenderlessValidate';
 // import Decorate from '@/components/Decorate';
-import ComponentAttr from '@/components/ComponentAttr';
+// import ComponentAttr from '@/components/ComponentAttr';
+import SCascader from '@/components/SCascader'
 // import SProvide from '@/components/SProvide';
 // import SDirective from '@/components/SDirective';
 // import OnEmit from '@/components/onEmit/onEmit';
@@ -67,6 +69,7 @@ import ComponentAttr from '@/components/ComponentAttr';
 export default {
   name: 'App',
   components: {
+    SCascader,
     // DragTable,
     // ModelDemo,
     // One,
@@ -76,7 +79,7 @@ export default {
     // SSync,
     // SDirective,
     // SProvide,
-    ComponentAttr,
+    // ComponentAttr,
     // Decorate,
     // RenderlessValidate,
     // SMixin,
