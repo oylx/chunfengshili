@@ -1,7 +1,7 @@
 <template>
   <div class="fatherClass">
     我是父组件
-<!--    <h2>{{ msg1 }}</h2>-->
+<!--    <h2>{{ visible }}</h2>-->
 <!--    <h2>{{ $attrs.msg2}}</h2>-->
 <!--    <h2>{{ $attrs.msg3}}</h2>-->
 <!--    <h2>{{ $attrs.msg4}}</h2>-->
@@ -18,7 +18,7 @@ export default {
   name: "Fu",
   components: { Son },
   props: {
-    msg1: {
+    visible: {
       type: String,
       default: "",
     },

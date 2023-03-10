@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-      <drag-table></drag-table>
+<!--      <drag-table></drag-table>-->
 <!--    <s-scroll></s-scroll>-->
 <!--    <s-lazy></s-lazy>-->
 <!--    <s-sync></s-sync>-->
-    <model-demo></model-demo>
+<!--    <model-demo></model-demo>-->
 <!--    <one></one>-->
 <!--    <on-emit></on-emit>-->
 <!--    <s-directive></s-directive>-->
 
 <!--    <s-provide></s-provide>-->
-<!--    <component-attr></component-attr>-->
+    <component-attr />
 <!--    <decorate></decorate>-->
 <!--    <div>-->
 <!--      <renderless-validate></renderless-validate>-->
@@ -26,7 +26,7 @@
 <!--      <s-custom-wrap-input v-model="value"></s-custom-wrap-input>-->
 <!--      {{ value }}-->
 <!--    </div>-->
-<!--    <s-slot-demo></s-slot-demo>-->
+   <s-slot-demo></s-slot-demo>
 <!--    <s-custom></s-custom>-->
 <!--    <s-text></s-text>-->
 <!--    <s-select></s-select>-->
@@ -46,18 +46,20 @@
 // import SText from '@/components/SText';
 // import SSelect from '@/components/SSelect';
 // import SCustom from '@/components/SCustom';
-// import SSlotDemo from '@/components/SSlotDemo';
+// import SSlotDemo from './components/SSlotDemo.vue';
 // import SCustomWrapInput from '@/components/SCustomWrapInput';
 // import SMixin from '@/components/composition/mixin/SMixin';
 // import RenderlessValidate from '@/components/composition/renderless/RenderlessValidate';
 // import Decorate from '@/components/Decorate';
-// import ComponentAttr from '@/components/ComponentAttr';
+import ComponentAttr from '@/components/ComponentAttr';
 // import SProvide from '@/components/SProvide';
 // import SDirective from '@/components/SDirective';
 // import OnEmit from '@/components/onEmit/onEmit';
 // import One from '@/components/sync/One';
-import ModelDemo from '@/components/Checkbox/ModelDemo';
-import DragTable from "./components/DragTable"
+// import ModelDemo from '@/components/Checkbox/ModelDemo';
+// import DragTable from "./components/DragTable"
+// import SMixin from "@/components/sMixin";
+// import SJsonp from '@/components/SJsonp'
 // import SSync from '@/components/SSync';
 // import SLazy from '@/components/SLazy';
 // import SScroll from '@/components/SScroll';
@@ -65,8 +67,8 @@ import DragTable from "./components/DragTable"
 export default {
   name: 'App',
   components: {
-    DragTable,
-    ModelDemo,
+    // DragTable,
+    // ModelDemo,
     // One,
     // OnEmit,
     // SScroll,
@@ -74,7 +76,7 @@ export default {
     // SSync,
     // SDirective,
     // SProvide,
-    // ComponentAttr,
+    ComponentAttr,
     // Decorate,
     // RenderlessValidate,
     // SMixin,
@@ -86,6 +88,7 @@ export default {
     // SDirectivePage,
     // EventParentChild,
     // EightQueen,
+    // SMixin
   },
   data() {
     return {

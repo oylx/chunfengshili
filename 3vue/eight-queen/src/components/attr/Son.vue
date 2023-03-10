@@ -1,9 +1,11 @@
 <template>
   <div class="sunClass">
     我是孙子组件
-    <h2>接收爷组件数据:-->{{ msg2 }}</h2>
-    <h2>接收爷组件数据:-->{{ msg3 }}</h2>
-    <h2>接收爷组件数据:-->{{ $attrs.msg4 }}</h2>
+    <h2>接收爷组件数据1:-->{{ $attrs.visible }}</h2>
+    <h3>【visible没了，因为中途被FU组件props过了】</h3>
+    <h2>接收爷组件数据2:-->{{ msg2 }}</h2>
+    <h2>接收爷组件数据3:-->{{ msg3 }}</h2>
+    <h2>接收爷组件数据4:-->{{ $attrs.msg4 }}</h2>
     <button @click="sendToZu">孙传祖</button>
   </div>
 </template>

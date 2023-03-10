@@ -2,7 +2,7 @@
   <div class="ye">
     我是爷组件
     <h3>{{ fromSunData }}</h3>
-    <fu :msg1="msg1" :msg2="msg2" :msg3="msg3" :msg4="msg4"
+    <fu :visible="visible" :msg2="msg2" :msg3="msg3" :msg4="msg4"
         @fromSun="fromSun">
     </fu>
   </div>
@@ -16,12 +16,12 @@ export default {
   },
   data() {
     return {
-      msg1: "孙悟空",
-      msg2: "猪八戒",
-      msg3: ["白骨精", "玉兔精", "狐狸精"],
+      visible: "1=========孙悟空=====",
+      msg2: "2猪八戒",
+      msg3: ["3白骨精", "3玉兔精", "3狐狸精"],
       msg4: {
-        name: "炎帝萧炎",
-        book: "斗破苍穹",
+        name: "4炎帝萧炎",
+        book: "4斗破苍穹",
       },
       showComponent: false,
       fromSunData: "",
