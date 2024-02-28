@@ -1,16 +1,17 @@
 <template>
   <div id="app">
+<!--    <s-chat-gpt />-->
 <!--      <drag-table></drag-table>-->
 <!--    <s-scroll></s-scroll>-->
 <!--    <s-lazy></s-lazy>-->
 <!--    <s-sync></s-sync>-->
-<!--    <model-demo></model-demo>-->
+    <model-demo></model-demo>
 <!--    <one></one>-->
 <!--    <on-emit></on-emit>-->
 <!--    <s-directive></s-directive>-->
 
 <!--    <s-provide></s-provide>-->
-    <s-cascader />
+<!--    <s-cascader />-->
 <!--    <component-attr />-->
 <!--    <decorate></decorate>-->
 <!--    <div>-->
@@ -53,12 +54,12 @@
 // import RenderlessValidate from '@/components/composition/renderless/RenderlessValidate';
 // import Decorate from '@/components/Decorate';
 // import ComponentAttr from '@/components/ComponentAttr';
-import SCascader from '@/components/SCascader'
+// import SCascader from '@/components/cascader/Cascader'
 // import SProvide from '@/components/SProvide';
 // import SDirective from '@/components/SDirective';
 // import OnEmit from '@/components/onEmit/onEmit';
 // import One from '@/components/sync/One';
-// import ModelDemo from '@/components/Checkbox/ModelDemo';
+import ModelDemo from '@/components/Checkbox/ModelDemo';
 // import DragTable from "./components/DragTable"
 // import SMixin from "@/components/sMixin";
 // import SJsonp from '@/components/SJsonp'
@@ -66,12 +67,14 @@ import SCascader from '@/components/SCascader'
 // import SLazy from '@/components/SLazy';
 // import SScroll from '@/components/SScroll';
 
+// import SChatGpt from '@/components/SChatGpt'
 export default {
   name: 'App',
   components: {
-    SCascader,
+    // SChatGpt,
+    // SCascader,
     // DragTable,
-    // ModelDemo,
+    ModelDemo,
     // One,
     // OnEmit,
     // SScroll,
