@@ -17,7 +17,7 @@ export default {
     },
     options: {
       type: Array,
-      default: () => { return []; },
+      default: () => ([]),
       required: true,
     },
   },
@@ -25,11 +25,6 @@ export default {
     return {
       currentValue: this.value,
     };
-  },
-  watch: {
-    value(newVal) {
-      this.currentValue = newVal;
-    },
   },
   methods: {
     handleChange(e) {

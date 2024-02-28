@@ -1,5 +1,5 @@
 <template>
-  <input type="checkbox" :checked="value" @change="handleChange"/>
+  <input type="checkbox" :checked="currentValue" @change="handleChange"/>
 </template>
 
 <script>
@@ -15,11 +15,6 @@ export default {
   data(){
     return{
       currentValue: this.value
-    }
-  },
-  watch: {
-    value(newVal){
-      this.currentValue = newVal;
     }
   },
   methods: {

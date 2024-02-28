@@ -1,7 +1,7 @@
 <template>
   <div>
     <button @click="increase(-1)">-1</button>
-    <input type="number" :value="currentValue" @input="changeValue" />
+    <input type="number" :value="currentValue" />
     <button @click="increase(1)">+1</button>
   </div>
 </template>
@@ -21,16 +21,7 @@ export default {
       currentValue: this.value
     }
   },
-  watch: {
-    value(newVal){
-      this.currentValue = newVal;
-    }
-  },
   methods:{
-    changeValue(e){
-      this.currentValue = parseInt(e.target.value);
-      this.$emit('input', this.currentValue);
-    },
     increase(value){
       this.currentValue+= value;
       this.$emit('input', this.currentValue);

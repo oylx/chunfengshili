@@ -3,6 +3,7 @@
 <!--checkbox 和 radio 使用 props:checked 属性和 $emit('change') 事件。-->
 <!--select 使用 props:value 属性和 $emit('change') 事件。-->
 <!--但是，除了上面列举的这些，别的都是 $emit('input') 以及 props:value 。-->
+<!--$emit事件可以在任何地方,子组件可以任意组合，看具体input/select/checkbox判断$emit是哪种事件-->
 <template>
 
   <div>

@@ -4,11 +4,11 @@
       <div>
         <my-component>
           <template v-slot:default="{toParent: a,toParent2: b}">
-            {{a.data2}}
-            {{b.data2}}
+            {{ a.data2 }}
+            {{ b.data2 }}
           </template>
           <template v-slot:header="{headerData:c}">
-            {{c.data2}}
+            {{ c.data2 }}
           </template>
         </my-component>
       </div>
@@ -23,12 +23,12 @@
       </template>
     </current-user>
     <!--    注意默认插槽的 缩写语法 不能和具名插槽混用，因为它会导致作用域不明确：-->
-<!--    <current-user v-slot="slotProps">-->
-<!--      {{ slotProps.user.firstName }}-->
-<!--      <template v-slot:other="otherSlotProps">-->
-<!--        slotProps is NOT available here-->
-<!--      </template>-->
-<!--    </current-user>-->
+    <!--    <current-user v-slot="slotProps">-->
+    <!--      {{ slotProps.user.firstName }}-->
+    <!--      <template v-slot:other="otherSlotProps">-->
+    <!--        slotProps is NOT available here-->
+    <!--      </template>-->
+    <!--    </current-user>-->
     <current-user>
       <!--      可以简写为<template #default="slotProps">-->
       <template #default="{ user: { lastName } }">
@@ -65,11 +65,11 @@
 
 <script>
 
-import NavigationLink from '@/components/slot/NavigationLink';
-import BaseLayout from '@/components/slot/BaseLayout';
-import CurrentUser from '@/components/slot/CurrentUser';
-import SLoad from '@/components/SLoad';
-import MyComponent from '@/components/slot/MyComponent';
+import NavigationLink from '@/components/slot/NavigationLink'
+import BaseLayout from '@/components/slot/BaseLayout'
+import CurrentUser from '@/components/slot/CurrentUser'
+import SLoad from '@/components/SLoad'
+import MyComponent from '@/components/slot/MyComponent'
 
 export default {
   name: 'SSlotDemo',
@@ -80,7 +80,7 @@ export default {
     BaseLayout,
     NavigationLink,
   },
-};
+}
 </script>
 
 <style scoped>
